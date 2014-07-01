@@ -5,13 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 import batch.common.FileProfile;
-import batch.common.constant;
+import batch.common.Constant;
 
-public class ArchiveFileSelection {
+public class SelectionArchiveFile {
 
 	public static void main(String[] args) {
-		ArchiveFileSelection afs = new ArchiveFileSelection();
-		afs.selectionFiles(constant.SERCH_DIR, constant.TARGET_DIR);
+		SelectionArchiveFile afs = new SelectionArchiveFile();
+		afs.selectionFiles(Constant.SERCH_DIR, Constant.TARGET_DIR);
 	}
 
 	private void selectionFiles(String inpath, String outpath) {
@@ -38,11 +38,11 @@ public class ArchiveFileSelection {
 				FileProfile fp = new FileProfile(files[i].getName(),
 						lastModified);
 				fp.writeCsvFile(outdir.getPath());
-				// ファイルコピー TODO
+				// ファイルコピー
 				try {
 					System.out.println(files[i].toPath().toString());
 					System.out.println(outdir.toPath().toString());
-					Files.copy(files[i].toPath(), outdir.toPath(),
+					Files.copy(files[i].toPath(), new File(outdir.getAbsolutePath(), files[i].getName()).toPath(),
 							StandardCopyOption.COPY_ATTRIBUTES);
 
 				} catch (Exception e) {
