@@ -8,57 +8,39 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class FileProfile {
-	private final String CSV_FILENAME = "profile.csv";
+	// 出力ファイル名
+	private final String FILENAME = "profile.csv";
+	// 区切り文字
+	private final String SEPARATOR = ",";
+
 	/* 取得時ファイル名 */
 	private String defaultFileName;
 	/* 取得日時 */
-	private String addDate;
-	/* 再編後ファイル名 */
-	private String remakeFileName;
+	private String getDate;
 
-	public FileProfile(String defaultFileName, String addDate) {
-		this.defaultFileName = defaultFileName;
-		this.addDate = addDate;
+	public FileProfile() {
 	}
 
-	public static String getLastModifiedString(long lastModified) {
-		String lastModifiedString = "";
-
+	public void writeCsvFile(String path) throws Exception {
+		File file = new File(path);
+		// getProperty
+		defaultFileName = file.getName();
+		getDate = getGetDate(file.lastModified());
+		// writeCSV
+		write();
+	}
+	private String getGetDate(long lastModified) throws Exception {
 		/** 時刻フォーマット変換 */
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPAN);
-		lastModifiedString = sdf.format(new Long(lastModified));
-
-		return lastModifiedString;
+		return sdf.format(lastModified);
 	}
-
-	public void writeCsvFile(String path) {
-		try {
-			File file = new File(path + "/" + CSV_FILENAME);
-			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-			pw.println(this.defaultFileName + "," + this.addDate);
-			pw.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	private void write() throws Exception {
+		File file = new File(FILENAME);
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+		StringBuffer sb = new StringBuffer();
+		sb.append(defaultFileName).append(SEPARATOR);
+		sb.append(getDate);
+		pw.print(sb.toString());
+		pw.close();
 	}
-	public String getDefaultFileName() {
-		return defaultFileName;
-	}
-	public void setDefaultFileName(String defaultFileName) {
-		this.defaultFileName = defaultFileName;
-	}
-	public String getRemakeFileName() {
-		return remakeFileName;
-	}
-	public void setRemakeFileName(String remakeFileName) {
-		this.remakeFileName = remakeFileName;
-	}
-	public String getAddDate() {
-		return addDate;
-	}
-	public void setAddDate(String addDate) {
-		this.addDate = addDate;
-	}
-
 }

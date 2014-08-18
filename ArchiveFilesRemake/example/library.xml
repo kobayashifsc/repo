@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<movie version="8" width="980" height="600" framerate="12">
+  <background color="#909090"/>
+  <frame>
+    <library>
+      <clip id="photo1"  import="images/01.jpg"/>
+      <clip id="photo2"  import="images/02.jpg"/>
+      <clip id="photo3"  import="images/03.jpg"/>
+      <clip id="photo4"  import="images/04.jpg"/>
+      <clip id="photo5"  import="images/05.jpg"/>
+      <font id="DS Note" import="DS_Note.ttf"  glyphs="1234567890 йцукенгшщзхъфывапролджэячсмитьбю.,ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁё!?:;()-="/>
+    </library>
+  </frame>
+</movie>

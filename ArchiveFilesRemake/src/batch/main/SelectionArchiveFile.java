@@ -33,11 +33,11 @@ public class SelectionArchiveFile {
 				outdir.mkdir();
 
 				// Profile作成
-				String lastModified = FileProfile
-						.getLastModifiedString(files[i].lastModified());
-				FileProfile fp = new FileProfile(files[i].getName(),
-						lastModified);
-				fp.writeCsvFile(outdir.getPath());
+				//String lastModified = FileProfile
+				//		.getLastModifiedString(files[i].lastModified());
+				//FileProfile fp = new FileProfile(files[i].getName(),
+				//		lastModified);
+				//fp.writeCsvFile(outdir.getPath());
 				// ファイルコピー
 				try {
 					System.out.println(files[i].toPath().toString());
