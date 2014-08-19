@@ -5,7 +5,6 @@ import java.io.File;
 public class DirectoryManager {
 
 	public void delete(String path) throws Exception {
-		System.out.println("DirectoryManager delete start");
 		File directory = new File(path);
 		deleteDirectory(directory);
 		directory.delete();

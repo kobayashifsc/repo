@@ -1,6 +1,6 @@
 package batch.main;
 
-import batch.common.FileProfile;
+import batch.common.FileProfileManager;
 import batch.common.RarFileManager;
 
 public class UnzipRAR {
@@ -10,10 +10,9 @@ public class UnzipRAR {
 	 */
 	public static void main(String[] args) {
 		try {
-			// WriteProfileCSV
-			FileProfile fp = new FileProfile();
-			fp.writeCsvFile(args[0]);
-
+			// WriteFileProfile
+			FileProfileManager fpm = new FileProfileManager();
+			fpm.makeInitFileProfile(args[0]);
 			// UnzipRAR
 			RarFileManager rfm = new RarFileManager();
 			rfm.unzipRar(args[0]);
