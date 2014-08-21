@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>true</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation>C:\dev\app\apache-tomcat-7.0.55\webapps\SampleDeployerAPI.war</warLocation>
+    <extraInfo></extraInfo>
+    <webPath>SampleDeployerAPI</webPath>
+</tomcatProjectProperties>
